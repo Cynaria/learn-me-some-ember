@@ -4,6 +4,9 @@ App.Router.map(function() {
   this.route('recipes', {path:'/'});
 });
 
-App.RecipeRoute = Ember.Route.extend({
-	model: function(){App.Recipe.find();}
+App.RecipesRoute = Ember.Route.extend({
+	controllerName: 'recipes',
+	model: function () {
+		return this.store.find('recipe');
+	}
 });

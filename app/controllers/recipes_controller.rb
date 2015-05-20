@@ -21,6 +21,7 @@ class RecipesController < ApplicationController
     respond_with Recipe.destroy(params[:id])
   end
 
+  private
   def recipe_params
     params.require(:recipe).permit(:name, :description)
   end

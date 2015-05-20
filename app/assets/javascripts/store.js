@@ -1,3 +1,7 @@
 App.Store = DS.Store.extend({
-  revision: 11
+  adapter: DS.RESTAdapter.create()
+});
+
+App.ApplicationAdapter = DS.ActiveModelAdapter.extend({
+
 });
