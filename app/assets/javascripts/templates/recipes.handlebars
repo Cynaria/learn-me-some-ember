@@ -1,0 +1,6 @@
+{{ view Ember.TextField valueBinding="recipe" action="addRecipe"}}
+<ul>
+	{{#each controller	}}
+	<li>{{recipe}}</li>
+	{{/each}}
+</ul>

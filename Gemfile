@@ -19,9 +19,9 @@ gem 'jquery-rails'
 # Use emberjs
 gem 'ember-rails'
 gem 'ember-source', '~> 1.8.1'
-gem 'emblem-rails'
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
 gem 'jbuilder', '~> 2.0'
+gem 'responders', '~> 2.0'
 # bundle exec rake doc:rails generates the API under doc/api.
 gem 'sdoc', '~> 0.4.0', group: :doc
 
