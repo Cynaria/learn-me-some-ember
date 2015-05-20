@@ -1,5 +1,5 @@
 # Ember tryout
-An app that calculates the amount of ingredients you need for multiple recipies
+An app that calculates the amount of ingredients you need for multiple recipes
 
 	```
 	onion soup:{onion: 1,

@@ -1,9 +1,9 @@
 App.ApplicationController = Ember.Controller.extend({
-	companies: [],
+	recipes: [],
 	actions:{
-		addCompany: function(){
-			this.companies.pushObject({company: this.get('company')});
-			return this.set('company', "");
+		addRecipe: function(){
+			this.recipes.pushObject({recipe: this.get('recipe')});
+			return this.set('recipe', "");
 		}
 	}
 });
