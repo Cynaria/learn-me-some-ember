@@ -1,6 +1,11 @@
-{{ view Ember.TextField valueBinding="recipe" action="addRecipe"}}
+{{ view App.newEntryView}}
 <ul>
 	{{#each controller	}}
-	<li>{{name}}</li>
+	<li>
+		{{name}}: {{description}} 
+		{{#with this as model}}
+		<button {{ action 'deleteRecipe' this}}>delete</button>
+		{{/with}}
+	</li>
 	{{/each}}
 </ul>
