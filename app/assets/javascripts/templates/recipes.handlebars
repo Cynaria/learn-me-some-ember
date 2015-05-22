@@ -13,6 +13,10 @@
 				{{recipe.name}}: {{recipe.description}} 
 			</span>
 				<br>
+				{{ view App.NumberField valueBinding="ingredientAmount"}}
+				{{ view Ember.TextField valueBinding="ingredientMeasurement"}}
+				{{ view Ember.TextField valueBinding="ingredientName" }}
+				<button {{ action "addIngredient"}}>add Ingredient</button>
 				{{#each ingredient in recipe.ingredients}}
 					{{ingredient.amount}} {{ingredient.measurement}} {{ingredient.name}}
 				{{/each}}
