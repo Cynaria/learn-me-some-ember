@@ -1,11 +1,20 @@
-{{ view App.newEntryView}}
+{{ view App.newRecipeView}}
 <ul>
-	{{#each controller	}}
+	{{#each recipe in model itemController="recipe"}}
 	<li>
-		{{name}}: {{description}} 
-		{{#with this as model}}
-		<button {{ action 'deleteRecipe' this}}>delete</button>
-		{{/with}}
+		{{#if recipe.isEditing}}
+			<form {{action 'cancleEdit' on="focusOut"}} >
+	      {{ view Ember.TextField valueBinding="recipeName"}}
+	      {{ view Ember.TextField valueBinding="recipeDescription"}}
+	      <input type="submit" class="hide"  {{action 'saveRecipe' recipe  }}>
+	    </form>
+    {{else}}
+
+    	<span {{action "editRecipe" recipe on="doubleClick"}}>
+				{{recipe.name}}: {{recipe.description}} 
+				<button {{ action "deleteRecipe" recipe }}>delete</button>
+			</span>
+		{{/if}}
 	</li>
 	{{/each}}
 </ul>

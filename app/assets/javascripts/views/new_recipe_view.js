@@ -1,4 +1,4 @@
-App.newEntryView = Ember.View.extend({
+App.newRecipeView = Ember.View.extend({
 	templateName: 'new_recipe',
 	tagName: 'form',
 
