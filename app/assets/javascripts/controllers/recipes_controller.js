@@ -1,9 +1,7 @@
 App.RecipesController = Ember.ArrayController.extend({
 	actions:{
-		addRecipe: function(name){
-			var store = this.store;
-			store.createRecord('recipe',{name: name}).save();
-			return this.set('recipe', "");
+		addRecipe: function(name, description){
+			this.store.createRecord('recipe',{name: name, description: description}).save();
 		}
 	}
 });

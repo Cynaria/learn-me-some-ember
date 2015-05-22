@@ -1,6 +1,27 @@
-{{ view Ember.TextField valueBinding="recipe" action="addRecipe"}}
+{{ view App.newRecipeView}}
 <ul>
-	{{#each controller	}}
-	<li>{{name}}</li>
+	{{#each recipe in model itemController="recipe"}}
+	<li>
+		{{#if isEditing}}
+			<form {{action 'cancleEdit' on="focusOut"}} >
+	      {{ view Ember.TextField placeholder=recipe.name valueBinding="editRecipeName"}}
+	      {{ view Ember.TextField placeholder=recipe.description valueBinding="editRecipeDescription"}}
+	      <input type="submit" value="save" {{action 'saveRecipe' recipe  }}>
+	    </form>
+    {{else}}
+    	<span {{action "editRecipe" recipe on="doubleClick"}}>
+				{{recipe.name}}: {{recipe.description}} 
+			</span>
+				<br>
+				{{ view App.NumberField valueBinding="ingredientAmount"}}
+				{{ view Ember.TextField valueBinding="ingredientMeasurement"}}
+				{{ view Ember.TextField valueBinding="ingredientName" }}
+				<button {{ action "addIngredient"}}>add Ingredient</button>
+				{{#each ingredient in recipe.ingredients}}
+					{{ingredient.amount}} {{ingredient.measurement}} {{ingredient.name}}
+				{{/each}}
+				<button {{ action "deleteRecipe" recipe }}>delete</button>
+		{{/if}}
+	</li>
 	{{/each}}
 </ul>

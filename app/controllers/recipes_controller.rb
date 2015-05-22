@@ -14,7 +14,7 @@ class RecipesController < ApplicationController
   end
 
   def update
-    respond_with Recipe.update(params[:id], params[:recipe])
+    respond_with Recipe.update(recipe_params[:id], recipe_params)
   end
 
   def destroy
@@ -23,6 +23,6 @@ class RecipesController < ApplicationController
 
   private
   def recipe_params
-    params.require(:recipe).permit(:name, :description)
+    params.require(:recipe).permit(:id, :name, :description, :ingredients)
   end
 end
